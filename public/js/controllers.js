@@ -41,7 +41,7 @@ function ModalDemoCtrl($scope, $modal, $log) {
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'partials/myModalContent',
       controller: ModalInstanceCtrl,
       size: size,
       resolve: {

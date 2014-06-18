@@ -43,8 +43,9 @@ app.get('/', routes.index);
 app.get('/partial/:name', routes.partial);
 
 // JSON API
-app.get('/api/name', api.name);
-
+app.get('/partials/:name',function(req,res){
+  res.render('partials/'+req.params.name);
+})
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
