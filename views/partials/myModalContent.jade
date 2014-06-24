@@ -2,9 +2,9 @@
   h3.modal-title Uppload Your Content!
 .modal-body(ng-controller="ButtonsCtrl")
   .btn-group
-    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Left'") Left
-    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Middle'") Middle
-    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Right'") Right
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Left'") Pic
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Middle'") Video
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Right'") MEME
   form#fileupload(action="//jquery-file-upload.appspot.com/", method="POST", enctype="multipart/form-data", data-ng-app="demo", data-ng-controller="DemoFileUploadController", data-file-upload="options", data-ng-class="{'fileupload-processing': processing() || loadingFiles}")
     noscript
       input(type="hidden", name="redirect", value="http://blueimp.github.io/jQuery-File-Upload/")
@@ -39,6 +39,22 @@
               a(data-ng-switch-default="", data-ng-href="{{file.url}}", title="{{file.name}}", download="{{file.name}}") {{file.name}}
             span(data-ng-switch-default="") {{file.name}}
           strong.error.text-danger(data-ng-show="file.error") {{file.error}}
+        td
+          p.size {{file.size | formatFileSize}}
+          .progress.progress-striped.active.fade(data-ng-class="{pending: 'in'}[file.$state()]", data-file-upload-progress="file.$progress()")
+            .progress-bar.progress-bar-success(data-ng-style="{width: num + '%'}")
+        td
+          button.btn.btn-primary.start(type="button", data-ng-click="file.$submit()", data-ng-hide="!file.$submit || options.autoUpload", data-ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'")
+            i.glyphicon.glyphicon-upload
+            span Start
+          button.btn.btn-warning.cancel(type="button", data-ng-click="file.$cancel()", data-ng-hide="!file.$cancel")
+            i.glyphicon.glyphicon-ban-circle
+            span Cancel
+          button.btn.btn-danger.destroy(data-ng-controller="FileDestroyController", type="button", data-ng-click="file.$destroy()", data-ng-hide="!file.$destroy")
+            i.glyphicon.glyphicon-trash
+            span Delete
+
+
 
 
 
