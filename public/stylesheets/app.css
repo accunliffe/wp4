@@ -34,13 +34,14 @@ video.fillWidth {
 }
 .getdown-top {
   width: auto;
+  
 }
 #nav {
   width: auto;
 }
 a.main-nav {
   z-index: 1;
-  position: fixed;
+  position: relative;
   display: block;
   min-height: auto;
   width: 100%;
@@ -135,8 +136,9 @@ a.main-nav {
 .neon {
   font-family: 'ostrich_sansbold';
   text-align: center;
-  font-size: 600%;
+  font-size: 400%;
   text-decoration: none;
+  max-height: 10%;
 }
 .neon2 {
   font-family: 'ostrich_sansbold';
@@ -185,4 +187,7 @@ a.main-nav {
 }
 .moder {
   width: auto;
+}
+.btn-default {
+  margin-top: 12.5%;
 }

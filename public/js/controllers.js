@@ -69,11 +69,24 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
     item: $scope.items[0]
   };
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
+  //$scope.upload = function () {
+    //$modalInstance.close($scope.selected.item);
+  //};
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
+  };
+};
+
+var ButtonsCtrl = function ($scope) {
+
+  $scope.singleModel = 1;
+
+  $scope.radioModel = 'Middle';
+
+  $scope.checkModel = {
+    left: false,
+    middle: true,
+    right: false
   };
 };

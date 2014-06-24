@@ -1,10 +1,47 @@
 .modal-header
-  h3.modal-title I"m a modal!
-.modal-body
-  ul
-    li(ng-repeat="item in items")
-      a(ng-click="selected.item = item") {{ item }}
-  Selected: b {{ selected.item }}
-.modal-footer
-  button.btn.btn-primary(ng-click="ok()") OK
-  button.btn.btn-warning(ng-click="cancel()") Cancel
+  h3.modal-title Uppload Your Content!
+.modal-body(ng-controller="ButtonsCtrl")
+  .btn-group
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Left'") Left
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Middle'") Middle
+    label.btn.btn-primary(ng-model="radioModel", btn-radio="'Right'") Right
+  form#fileupload(action="//jquery-file-upload.appspot.com/", method="POST", enctype="multipart/form-data", data-ng-app="demo", data-ng-controller="DemoFileUploadController", data-file-upload="options", data-ng-class="{'fileupload-processing': processing() || loadingFiles}")
+    noscript
+      input(type="hidden", name="redirect", value="http://blueimp.github.io/jQuery-File-Upload/")
+    .row.fileupload-buttonbar
+      .col-lg-7
+        span.btn.btn-success.fileinput-button(ng-class="{disabled: disabled}")
+          i.glyphicon.glyphicon-plus
+          span Add files...
+          input(type="file", name="files[]", multiple="", ng-disabled="disabled")
+        button.btn.btn-primary.start(type="button", data-ng-click="submit()")
+          i.glyphicon.glyphicon-upload
+          span Start upload
+        button.btn.btn-warning(type="button", data-ng-click="cancel()")
+          i.glyphicon.glyphicon-ban-circle
+          span Cancel upload
+        span.fileupload-process
+      .col-lg-5.fade(data-ng-class="{in: active()}")
+        .progress.progress-striped.active(data-file-upload-progress="progress()")
+          .progress-bar.progress-bar-success(data-ng-style="{width: num + '%'}")
+        .progress-extended &#160;
+    table.table.table-striped.files.ng-cloak
+      tr(data-ng-repeat="file in queue", data-ng-class="{'processing': file.$processing()}")
+        td(data-ng-switch="", data-on="!!file.thumbnailUrl")
+          .preview(data-ng-switch-when="true")
+            a(data-ng-href="{{file.url}}", title="{{file.name}}", download="{{file.name}}", data-gallery="")
+              img(data-ng-src="{{file.thumbnailUrl}}", alt="")
+          .preview(data-ng-switch-default="", data-file-upload-preview="file")
+        td
+          p.name(data-ng-switch="", data-on="!!file.url")
+            span(data-ng-switch-when="true", data-ng-switch="", data-on="!!file.thumbnailUrl")
+              a(data-ng-switch-when="true", data-ng-href="{{file.url}}", title="{{file.name}}", download="{{file.name}}", data-gallery="") {{file.name}}
+              a(data-ng-switch-default="", data-ng-href="{{file.url}}", title="{{file.name}}", download="{{file.name}}") {{file.name}}
+            span(data-ng-switch-default="") {{file.name}}
+          strong.error.text-danger(data-ng-show="file.error") {{file.error}}
+
+
+
+
+
+
