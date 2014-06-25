@@ -3498,7 +3498,7 @@
   app.directive('ngUploadForm', ['$rootScope', 'fileUpload', function () {
       return {
         restrict: 'E',
-        templateUrl: 'templates/fileform.html',
+        templateUrl: 'partials/fileForm.html',
         scope: {
           allowed: '@',
           url: '@',
