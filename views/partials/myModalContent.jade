@@ -5,44 +5,57 @@
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'Pic'") Pic
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'Video'") Video
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'MEME'") MEME
-  formContainer(data-ng-app="uploadModule")
-    ng-upload-form(url="/files/", auto-upload="true", size-limit="500000")
-    ng-upload-form(url="//jquery-file-upload.appspot.com/")
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title Demo Notes
-    .panel-body
-      ul
-        li
-          | The maximum file size for uploads in this demo is
-          strong 5 MB
-          | (default file size is unlimited).
-        li
-          | Only image files (
-          strong JPG, GIF, PNG
-          | ) are allowed in this demo (by default there is no file type restriction).
-        li
-          | Uploaded files will be deleted automatically after
-          strong 5 minutes
-          | (demo setting).
-        li
-          | You can
-          strong drag &#38; drop
-          | files from your desktop on this webpage (see
-          a(href="https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support") Browser support
-          | ).
-        li
-          | Please refer to the
-          a(href="https://github.com/blueimp/jQuery-File-Upload") project website
-          | and
-          a(href="https://github.com/blueimp/jQuery-File-Upload/wiki") documentation
-          | for more information.
-        li
-          | Built with Twitter"s
-          a(href="http://twitter.github.com/bootstrap/") Bootstrap
-          | CSS framework and Icons from
-          a(href="http://glyphicons.com/") Glyphicons
-          | .
+  input(type="file", ng-file-select="")
+  h3 Upload queue
+  p Queue length: {{ uploader.queue.length }}
+  table.table
+    thead
+      tr
+        th(width="50%") Name
+        th(ng-show="uploader.isHTML5") Size
+        th(ng-show="uploader.isHTML5") Progress
+        th Status
+        th Actions
+    tbody
+      tr(ng-repeat="item in uploader.queue")
+        td
+          strong {{ item.file.name }}
+        td(ng-show="uploader.isHTML5", nowrap="") {{ item.file.size/1024/1024|number:2 }} MB
+        td(ng-show="uploader.isHTML5")
+          .progress(style="margin-bottom: 0;")
+            .progress-bar(role="progressbar", ng-style="{ 'width': item.progress + '%' }")
+        td.text-center
+          span(ng-show="item.isSuccess")
+            i.glyphicon.glyphicon-ok
+          span(ng-show="item.isCancel")
+            i.glyphicon.glyphicon-ban-circle
+          span(ng-show="item.isError")
+            i.glyphicon.glyphicon-remove
+        td(nowrap="")
+          button.btn.btn-success.btn-xs(type="button", ng-click="item.upload()", ng-disabled="item.isReady || item.isUploading || item.isSuccess")
+            span.glyphicon.glyphicon-upload
+            | Upload
+          button.btn.btn-warning.btn-xs(type="button", ng-click="item.cancel()", ng-disabled="!item.isUploading")
+            span.glyphicon.glyphicon-ban-circle
+            | Cancel
+          button.btn.btn-danger.btn-xs(type="button", ng-click="item.remove()")
+            span.glyphicon.glyphicon-trash
+            | Remove
+  div
+    p
+      | Queue progress:
+      .progress(style="")
+        .progress-bar(role="progressbar", ng-style="{ 'width': uploader.progress + '%' }")
+    button.btn.btn-success.btn-s(type="button", ng-click="uploader.uploadAll()", ng-disabled="!uploader.getNotUploadedItems().length")
+      span.glyphicon.glyphicon-upload
+      | Upload all
+    button.btn.btn-warning.btn-s(type="button", ng-click="uploader.cancelAll()", ng-disabled="!uploader.isUploading")
+      span.glyphicon.glyphicon-ban-circle
+      | Cancel all
+    button.btn.btn-danger.btn-s(type="button", ng-click="uploader.clearQueue()", ng-disabled="!uploader.queue.length")
+      span.glyphicon.glyphicon-trash
+      | Remove all
+
 
 
 

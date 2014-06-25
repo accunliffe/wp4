@@ -9,7 +9,6 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','
     $routeProvider.when('/view3', {templateUrl: 'partials/partial3', controller: MyCtrl3});
     $routeProvider.when('/view4', {templateUrl: 'partials/partial4', controller: MyCtrl4});
     $routeProvider.when('myModalContent', {templateUrl: 'partials/myModalContent', controller: ModalDemoCtrl})
-    //$routeProvider.when('fileForm', {templateUrl: 'partials/fileForm.html', controller: FileUploadController})    
     $routeProvider.otherwise({redirectTo: '/view1'});
     $locationProvider.html5Mode(true);
   }]);
