@@ -1,0 +1,196 @@
+/* app css stylesheet */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.header-unit {
+  position: relative;
+  width: 100%;
+}
+#video-container {
+  position: relative;  
+  height: 1100px;
+}
+#video-container {
+  top:0%;
+  left:0%;
+  height:100%;
+  width:100%;
+}
+video {
+  position:relative;
+}
+video.fillWidth {
+  width: 100%;
+}
+
+
+//floating icon
+.top-wrapper{
+  width: 100%;
+  position: fixed;
+}
+.getdown-top {
+  width: auto;
+  
+}
+#nav {
+  width: auto;
+}
+a.main-nav {
+  z-index: 1;
+  position: relative;
+  display: block;
+  min-height: auto;
+  width: 100%;
+  font-family: 'ostrich_sansbold';
+  text-decoration: none;
+
+}
+
+@-moz-keyframes neonglow {
+    20%, 70% {
+        color: #000;
+        text-shadow: none;
+    }
+    25%, 50%, 75%, 95% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+    55% {
+        color: #222;
+        text-shadow: none;
+    }
+}
+@-moz-keyframes ontheblink {
+    21%, 39%, 45%, 47%, 53% {
+        color: #000;
+        text-shadow: none;
+    }
+    26%, 38%, 40%, 44%, 46%, 48% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+}
+@-ms-keyframes neonglow {
+    20%, 70% {
+        color: #000;
+        text-shadow: none;
+    }
+    25%, 50%, 75%, 95% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+    55% {
+        color: #222;
+        text-shadow: none;
+    }
+}
+@-ms-keyframes ontheblink {
+    21%, 39%, 45%, 47%, 53% {
+        color: #000;
+        text-shadow: none;
+    }
+    26%, 38%, 40%, 44%, 46%, 48% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+}
+@-webkit-keyframes neonglow {
+    20%, 70% {
+        color: #000;
+        text-shadow: none;
+    }
+    25%, 50%, 75%, 95% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+    55% {
+        color: #222;
+        text-shadow: none;
+    }
+}
+@-webkit-keyframes ontheblink {
+    21%, 39%, 45%, 47%, 53% {
+        color: #000;
+        text-shadow: none;
+    }
+    26%, 38%, 40%, 44%, 46%, 48% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    }
+}
+@font-face {
+    font-family: 'ostrich_sansbold';
+    src: url('fonts/ostrich-bold-webfont.eot');
+    src: url('fonts/ostrich-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ostrich-bold-webfont.woff') format('woff'),
+         url('fonts/ostrich-bold-webfont.ttf') format('truetype'),
+         url('fonts/ostrich-bold-webfont.svg#ostrich_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.neon {
+  font-family: 'ostrich_sansbold';
+  text-align: center;
+  font-size: 400%;
+  text-decoration: none;
+  max-height: 10%;
+}
+.neon2 {
+  font-family: 'ostrich_sansbold';
+  text-align: center;
+  font-size: 300%;
+  text-decoration: none;
+}
+.neon3 {
+  padding-top: 120px;
+  font-family: 'ostrich_sansbold';
+  text-align: right;
+  font-size: 300%;
+  text-decoration: none;
+}
+.on {
+    -moz-animation: neonglow 8s infinite;
+    -ms-animation: neonglow 10s infinite;
+    -webkit-animation: neonglow 10s infinite;
+    color: #000;
+}
+.out {
+    -moz-animation: ontheblink 10s infinite;
+    -ms-animation: ontheblink 10s infinite;
+    -webkit-animation: ontheblink 10s infinite;
+}
+.blackground {
+  background-color: black;
+}
+
+#main {
+  width: 100%;
+}
+.contentdisplay {
+  height: 800px;
+  background-color: #fff;
+}
+.footy {
+  z-index: 1;
+  position: relative;
+  display: block;
+  min-height: 200px;
+  max-height: 200px;
+  width: 100%;
+  font-family: 'ostrich_sansbold';
+  text-decoration: none;
+}
+.moder {
+  width: auto;
+}
+.btn-default {
+  margin-top: 12.5%;
+}
+.upcontainer {
+  height: auto;
+}
