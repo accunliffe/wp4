@@ -1,7 +1,7 @@
 .modal-header
   h3.modal-title Uppload Your Content!
-.modal-body(ng-controller="ButtonsCtrl")
-  .btn-group
+.modal-body(ng-controller='TestController', ng-file-drop='ng-file-drop')
+  .btn-group(ng-controller="ButtonsCtrl")
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'Pic'") Pic
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'Video'") Video
     label.btn.btn-primary(ng-model="radioModel", btn-radio="'MEME'") MEME
