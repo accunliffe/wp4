@@ -30,7 +30,7 @@ MyCtrl4.$inject = [];
 
 function floatCtrl($scope) {
   $scope.floater = false;
-  console.log('is this shit working?')
+  console.log('floating')
   $scope.dude = function(){$scope.clicked = true;};
 }
 
